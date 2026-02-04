@@ -15,9 +15,14 @@ df = pd.read_csv('data/raw/movies_metadata.csv')
 
 df['primary_genre'] = df['genres'].apply(extract_primary_genre)
 
+df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
+df['year'] = df['release_date'].dt.year
+df = df.dropna(subset=['year'])
+df['year'] = df['year'].astype(int)
+
 df = df[df['vote_count'] >= 500]
 
-df_clean = df[['id', 'title', 'primary_genre', 'overview', 'budget', 'release_date']]
+df_clean = df[['id', 'title', 'primary_genre', 'overview', 'budget', 'year']]
 
 df_clean = df_clean.set_index('id')
 
