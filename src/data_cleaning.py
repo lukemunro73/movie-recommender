@@ -15,15 +15,14 @@ df = pd.read_csv('data/raw/movies_metadata.csv')
 
 df['primary_genre'] = df['genres'].apply(extract_primary_genre)
 
-df = df.dropna(subset=['budget', 'release_date', 'genres'])
-
 df = df[df['vote_count'] >= 500]
 
-df_clean = df[['id', 'title', 'primary_genre', 'budget', 'release_date']]
+df_clean = df[['id', 'title', 'primary_genre', 'overview', 'budget', 'release_date']]
 
 df_clean = df_clean.set_index('id')
 
 
 print(f"\nFirst rows:\n{df_clean.head()}")
+print(df_clean.shape)
 
 df_clean.to_csv('data/processed/movies_cleaned.csv', index=False)
