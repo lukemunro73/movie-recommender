@@ -8,13 +8,15 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
+
 class MovieRecommender:
     '''Recommends movies based on similarity'''
 
+
     def __init__(self, data_path='data/processed/movies_cleaned.csv'):
         self.df = pd.read_csv(data_path)
-        
-    
+        self.prepare_features()
+
     def prepare_features(self):
         # One-hot encode genres 
         self.df = pd.get_dummies(self.df, columns=['primary_genre'], prefix='genre')
