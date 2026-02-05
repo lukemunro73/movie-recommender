@@ -1,0 +1,132 @@
+/* RESET & BODY STYLES */
+* {
+    margin: 0;           /* Remove default margins from all elements */
+    padding: 0;          /* Remove default padding from all elements */
+    box-sizing: border-box;  /* Make width/height include padding and border */
+}
+
+body {
+    font-family: Arial, sans-serif;  /* Set a clean, readable font */
+    background-color: #14181c;       /* Dark blue-gray background (Letterboxd style) */
+    padding: 20px;                   /* Add space around the edges */
+}
+
+/* CONTAINER - Centers everything */
+.container {
+    max-width: 800px;      /* Don't let it get too wide on large screens */
+    margin: 0 auto;        /* Center the container horizontally */
+    padding: 20px;         /* Space inside the container */
+}
+
+/* HEADING STYLES */
+h1 {
+    color: #fff;           /* White text */
+    text-align: center;    /* Center the heading */
+    margin-bottom: 10px;   /* Space below heading */
+    font-size: 2em;        /* Make it big (2x normal size) */
+}
+
+/* DESCRIPTION TEXT */
+.description {
+    color: #9ab;           /* Light blue-gray text (Letterboxd style) */
+    text-align: center;    /* Center the text */
+    margin-bottom: 30px;   /* Space below before search box */
+    font-size: 1.1em;      /* Slightly larger than normal */
+}
+
+/* SEARCH BOX - White box containing input and button */
+.search-box {
+    background: #2c3440;   /* Dark blue-gray background */
+    padding: 20px;         /* Space inside the box */
+    border-radius: 8px;    /* Rounded corners */
+    margin-bottom: 20px;   /* Space below the search box */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);  /* Darker shadow for depth */
+}
+
+/* INPUT FIELD */
+input {
+    width: 70%;            /* Take up 70% of the width */
+    padding: 12px;         /* Space inside the input */
+    font-size: 16px;       /* Text size */
+    border: 1px solid #456;  /* Dark blue-gray border */
+    border-radius: 4px;    /* Slightly rounded corners */
+    margin-right: 10px;    /* Space between input and button */
+    background: #14181c;   /* Dark background */
+    color: #fff;           /* White text */
+}
+
+input:focus {
+    outline: none;         /* Remove default blue outline */
+    border-color: #00c030; /* Letterboxd green border when focused */
+}
+
+/* BUTTON */
+button {
+    width: 25%;            /* Take up 25% of the width */
+    padding: 12px;         /* Space inside the button */
+    background-color: #00c030;  /* Letterboxd green background */
+    color: white;          /* White text */
+    border: none;          /* No border */
+    border-radius: 4px;    /* Rounded corners */
+    font-size: 16px;       /* Text size */
+    cursor: pointer;       /* Show pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #00d646;  /* Brighter green when hovering */
+}
+
+/* RESULTS SECTION - White box for movie cards */
+.results {
+    background: #2c3440;   /* Dark blue-gray background */
+    padding: 20px;         /* Space inside */
+    border-radius: 8px;    /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);  /* Darker shadow */
+}
+
+.results h2 {
+    color: #fff;           /* White text */
+    margin-bottom: 20px;   /* Space below the heading */
+    font-size: 1.5em;      /* Larger than normal */
+}
+
+/* MOVIE CARD - Individual movie result */
+.movie-card {
+    background: #445566;   /* Medium blue-gray background */
+    padding: 15px;         /* Space inside the card */
+    margin-bottom: 15px;   /* Space between cards */
+    border-radius: 6px;    /* Rounded corners */
+    border-left: 4px solid #00c030;  /* Letterboxd green accent bar on left */
+}
+
+/* MOVIE TITLE */
+.movie-title {
+    font-size: 1.3em;      /* Larger text */
+    color: #fff;           /* White */
+    margin-bottom: 8px;    /* Space below */
+    font-weight: bold;     /* Make it bold */
+}
+
+/* MOVIE DETAILS (Year and Budget) */
+.movie-details {
+    color: #9ab;           /* Light blue-gray */
+    font-size: 0.9em;      /* Slightly smaller */
+    margin-bottom: 10px;   /* Space below */
+}
+
+/* MOVIE OVERVIEW (Description) */
+.movie-overview {
+    color: #c9d1d9;        /* Light gray text */
+    line-height: 1.5;      /* Space between lines for readability */
+    margin-bottom: 10px;   /* Space below */
+}
+
+/* SIMILARITY SCORE - Match percentage badge */
+.similarity-score {
+    display: inline-block; /* Make it a box */
+    background: #00c030;   /* Letterboxd green background */
+    color: white;          /* White text */
+    padding: 4px 10px;     /* Space inside */
+    border-radius: 12px;   /* Very rounded (pill shape) */
+    font-size: 0.85em;     /* Smaller text */
+}
