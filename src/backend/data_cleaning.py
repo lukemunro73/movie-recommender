@@ -36,5 +36,8 @@ df_clean = df_clean.set_index('id')
 print(f"\nFirst rows:\n{df_clean.head()}")
 print(df_clean.shape)
 
+counts = df_clean["title"].value_counts()
+print(counts[counts > 1])
+
 # Add clean data to processed data path
 df_clean.to_csv('data/processed/movies_cleaned.csv', index=False) # create new dataset

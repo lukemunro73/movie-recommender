@@ -26,7 +26,6 @@ createApp({
     
     methods: {
         
-        // async = this function does asynchronous work (API calls)
         async getRecommendations() {
             
             // Check if input is empty
@@ -65,7 +64,6 @@ createApp({
                     throw new Error('Movie not found or API error');
                 }
                 
-                
                 // The API sends JSON text, this converts it to JavaScript objects
                 const data = await response.json();
                 
@@ -89,7 +87,7 @@ createApp({
                 this.error = `Could not find "${this.movieInput}". Please check the spelling or try another movie.`;
                 
             } finally {
-                // Set loading back to false
+                // Set loading back to false regardless of outcome
                 this.loading = false;
             }
         },

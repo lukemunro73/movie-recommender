@@ -33,4 +33,4 @@ def recommend(movie, n: int = 5):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000) # standard numbers for FastAPI
+    uvicorn.run(app, host="127.0.0.1", port=8000)
