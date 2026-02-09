@@ -1,4 +1,3 @@
-/* RESET & BODY STYLES */
 * {
     margin: 0;           
     padding: 0;          
@@ -11,14 +10,14 @@ body {
     padding: 20px;                  
 }
 
-/* Container - Centers everything */
+/* Container */
 .container {
     max-width: 800px;      
     margin: 0 auto;        
     padding: 20px;         
 }
 
-/* Heading Styles */
+/* Heading styles */
 h1 {
     color: #fff;          
     text-align: center;    
@@ -26,7 +25,7 @@ h1 {
     font-size: 2em;        
 }
 
-/* Description Text */
+/* Description text */
 .description {
     color: #9ab;          
     text-align: center;    
@@ -34,7 +33,7 @@ h1 {
     font-size: 1.1em;      
 }
 
-/* Search Box - White box containing input and button */
+/* Search box*/ 
 .search-box {
     background: #2c3440;  
     padding: 20px;         
@@ -43,7 +42,7 @@ h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);  
 }
 
-/* Input Field */
+/* Input field */
 input {
     width: 70%;            
     padding: 12px;         
@@ -95,7 +94,7 @@ button:hover {
 }
 
 
-/* RESULTS SECTION - White box for movie cards */
+/* Results box */
 .results {
     background: #2c3440;   
     padding: 20px;         
@@ -103,13 +102,14 @@ button:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);  
 }
 
+/* Results header */
 .results h2 {
     color: #fff;           
     margin-bottom: 20px;   
     font-size: 1.5em;      
 }
 
-/* Movie Card */
+/* Movie card */
 .movie-card {
     background: #445566;   
     padding: 15px;         
@@ -133,14 +133,14 @@ button:hover {
     margin-bottom: 10px;   
 }
 
-/* Movie Overview (Description) */
+/* Movie Overview */
 .movie-overview {
     color: #c9d1d9;       
     line-height: 1.5;      
     margin-bottom: 10px;   
 }
 
-/*Similarity Score - Match percentage badge */
+/* Similarity Score */
 .similarity-score {
     display: inline-block; 
     background: #00c030;   
@@ -150,7 +150,7 @@ button:hover {
     font-size: 0.85em;    
 }
 
-/* Empty state message */
+/* Empty message */
 .empty-message {
     text-align: center;
     color: #9ab;
