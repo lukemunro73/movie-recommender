@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Load Vue.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Movie Recommender</h1>
+            
+            <p class="description">
+                Enter a movie you like, and we'll recommend similar movies based on genre, budget, and year of release!
+            </p>
+
+            <div class="search-box">
+
+                <!-- Text box for movie input -->
+                <input 
+                    type="text" 
+                    placeholder="Enter a movie title"
+                    v-model="movieInput"
+                    @keyup.enter="getRecommendations"
+                >
+                
+                <!-- Recommend button -->
+                <button 
+                    @click="getRecommendations"
+                    :disabled="loading || !movieInput.trim()"
+                >
+                    {{ loading ? 'Searching...' : 'Recommend' }}
+                </button>
+            </div>
+
+            <!-- Displayed message when getting recommendations -->
+            <div v-if="loading" class="loading-message">
+                Finding similar movies...
+            </div>
+
+            <!-- Display error message -->
+            <div v-if="error" class="error-message">
+                {{ error }}
+            </div>
+
+            <!-- Show movie recommendation results -->
+            <div class="results" v-if="recommendations.length > 0">
+                
+                <!-- Display the searched movie name -->
+                <h2>Movies similar to "{{ queriedMovie }}"</h2>
+                
+                <!-- Create a card for each movie -->
+                <div 
+                    v-for="movie in recommendations" 
+                    :key="movie.title"
+                    class="movie-card"
+                >
+                    <!-- Display movie title and details -->
+                    <div class="movie-title">{{ movie.title }}</div>
+                    
+                    <div class="movie-details">
+                        Year: {{ movie.year }} | Budget: ${{ formatBudget(movie.budget) }}
+                    </div>
+                    
+                    <div v-if="movie.overview" class="movie-overview">
+                        {{ movie.overview }}
+                    </div>
+                    
+                    <!-- Calculate percentage and display -->
+                    <span class="similarity-score">
+                        {{ Math.round(movie.similarity_score, 2) * 100 }}% match
+                    </span>
+                </div>
+            </div>
+
+            <!-- Display message if no similar movies are found -->
+            <div class="results" v-else-if="!loading && searched && recommendations.length === 0">
+                <p class="empty-message">
+                    No similar movies found. Try a different movie!
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+
+style="background: #ff4444; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">

@@ -19,19 +19,21 @@ class MovieRecommender:
 
 
     def prepare_features(self):
+        '''Prepares features for cosine simimlarity use'''
+
         # One-hot encode genres 
         self.df = pd.get_dummies(self.df, columns=['primary_genre'], prefix='genre')
 
         # Get all genre columns
         self.genre_cols = [col for col in self.df.columns if col.startswith('genre_')]
 
-        # Normalize budget and year for fair comparison
+        # Normalize budget and year for comparison
         scaler = StandardScaler()
         self.df[['budget_scaled', 'year_scaled']] = scaler.fit_transform(self.df[['budget', 'year']])
 
         # Create feature table (genres, scaled budget, scaled year)
         self.feature_cols = self.genre_cols + ['budget_scaled', 'year_scaled']
-        self.feature_matrix = self.df[self.feature_cols].values
+        self.feature_matrix = self.df[self.feature_cols].values # NumPy array with rows as movies ans columns as features
     
 
     def get_recommendations(self, movie_title, num_recommendations):
@@ -77,13 +79,13 @@ class MovieRecommender:
 
 def main():
 
-    """Example usage"""
+    """Example use"""
 
     # Create recommender
     recommender = MovieRecommender()
 
     # Example 1: Get recommendations based on a movie
-    recommendations = recommender.get_recommendations('Pulp Fiction', num_recommendations=5)
+    recommendations = recommender.get_recommendations('Alien', num_recommendations=5)
     if recommendations is not None:
         print("\nTop 5 similar movies:")
         print(recommendations)
